@@ -1,46 +1,54 @@
 $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", function (JSONdata) {
-    var dataArr = JSONdata.data;
+    var crimesData = JSONdata.data;
     var yearLabels = [];
     var murdMansData = [];
     var rapeData = [];
-    var robData = [];
     var aggrAssaultData = [];
     /*
+    var robData = [];
     var burglData = [];
     var larceTheftData = [];
     var mvTheftData = [];
-    var totCrimes = [];
     */
+    //var totCrimesArr = [];
 
-    for (var i = 0; i < (dataArr.length); i++) {
-        yearLabels.push(dataArr[i][8]);
-        murdMansData.push(dataArr[i][9]);
-        rapeData.push(dataArr[i][10]);
-        robData.push(dataArr[i][11]);
-        aggrAssaultData.push(dataArr[i][12]);
+    for (var i = 0; i < (crimesData.length); i++) {
+        yearLabels.push(crimesData[i][8]);
+        murdMansData.push(crimesData[i][9]);
+        rapeData.push(crimesData[i][10]);
+        aggrAssaultData.push(crimesData[i][12]);
         /*
-        burglData.push(dataArr[i][13]);
-        larceTheftData.push(dataArr[i][14]);
-        mvTheftData.push(dataArr[i][15]);
-        totCrimes.push(dataArr[i][16]);
+        robData.push(crimesData[i][11]);
+        burglData.push(crimesData[i][13]);
+        larceTheftData.push(crimesData[i][14]);
+        mvTheftData.push(crimesData[i][15]);
         */
+        //totCrimesArr.push(crimesData[i][16]);
     }
 
-    var graphData = {
+    var murdMansChartData = {
         labels: yearLabels,
         datasets: [
             {
                 label: "Murder and Manslaughter",
                 data: murdMansData
-            },
+            }
+        ]
+    };
+
+    var rapeChartData = {
+        labels: yearLabels,
+        datasets: [
             {
                 label: "Rape",
                 data: rapeData
-            },
-            {
-                label: "Robbery",
-                data: robData
-            },
+            }
+        ]
+    };
+
+    var aggrAssaultChartData = {
+        labels: yearLabels,
+        datasets: [
             {
                 label: "Aggravated Assault",
                 data: aggrAssaultData
@@ -54,25 +62,93 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
     Chart.defaults.global.elements.line.fill = false;
     Chart.defaults.global.elements.point.radius = 5;
 
-    var ctx = $("#graph");
-    var graph = new Chart(ctx, {
+    var murdMansCtx = $("#murd-mans-graph");
+    var rapeCtx = $("#rape-graph");
+    var aggrAssaultCtx = $("#aggr-assault-graph");
+    /*
+    var robCtx = $("#rob-graph");
+    var burglCtx = $("#burgl-graph");
+    var larceTheftCtx = $("#larce-theft-graph");
+    var mvTheftCtx = $("#mv-theft-graph");
+    */
+
+    var xAxesOptions = [{
+        scaleLabel: {
+            display: true,
+            labelString: 'Year'
+        }
+    }];
+
+    var murdMansChart = new Chart(murdMansCtx, {
         type: 'line',
-        data: graphData,
+        data: murdMansChartData,
         options: {
             title: {
-                text: 'Berkeley Annual Crimes'
+                text: 'Murder and Manslaughter'
             },
             scales: {
-                xAxes: [{
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'Year'
-                    }
-                }],
+                xAxes: xAxesOptions,
                 yAxes: [{
                     scaleLabel: {
                         display: true,
-                        labelString: 'Number of Crimes'
+                        labelString: 'Number of Murders and Manslaughters'
+                    }
+                }]
+            }
+        }
+    });
+
+    var rapeChart = new Chart(rapeCtx, {
+        type: 'line',
+        data: rapeChartData,
+        options: {
+            title: {
+                text: 'Rape'
+            },
+            scales: {
+                xAxes: xAxesOptions,
+                yAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Number of Rapes'
+                    }
+                }]
+            }
+        }
+    });
+
+    var aggrAssaultChart = new Chart(aggrAssaultCtx, {
+        type: 'line',
+        data: aggrAssaultChartData,
+        options: {
+            title: {
+                text: 'Rape'
+            },
+            scales: {
+                xAxes: xAxesOptions,
+                yAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Number of Rapes'
+                    }
+                }]
+            }
+        }
+    });
+
+    var aggrAssaultChart = new Chart(aggrAssaultCtx, {
+        type: 'line',
+        data: aggrAssaultChartData,
+        options: {
+            title: {
+                text: 'Aggravated Assault'
+            },
+            scales: {
+                xAxes: xAxesOptions,
+                yAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Number of Aggravated Assaults'
                     }
                 }]
             }
