@@ -8,7 +8,7 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
     var burglData = [];
     var larceTheftData = [];
     var mvTheftData = [];
-    //var totCrimesArr = [];
+    var totCrimesData = [];
 
     for (var i = 0; i < (crimesData.length); i++) {
         yearLabels.push(crimesData[i][8]);
@@ -19,8 +19,18 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
         burglData.push(crimesData[i][13]);
         larceTheftData.push(crimesData[i][14]);
         mvTheftData.push(crimesData[i][15]);
-        //totCrimesArr.push(crimesData[i][16]);
+        totCrimesData.push(crimesData[i][16]);
     }
+
+    var totCrimesChartData = {
+        labels: yearLabels,
+        datasets: [
+            {
+                label: "Total Crimes",
+                data: totCrimesData
+            }
+        ]
+    };
 
     var murdMansChartData = {
         labels: yearLabels,
@@ -98,6 +108,7 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
     Chart.defaults.global.elements.line.fill = false;
     Chart.defaults.global.elements.point.radius = 5;
 
+    var totCrimesCtx = $("#tot-crimes-graph");
     var murdMansCtx = $("#murd-mans-graph");
     var rapeCtx = $("#rape-graph");
     var aggrAssaultCtx = $("#aggr-assault-graph");
@@ -112,6 +123,25 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
             labelString: 'Year'
         }
     }];
+
+    var totCrimesChart = new Chart(totCrimesCtx, {
+        type: 'horizontalBar',
+        data: totCrimesChartData,
+        options: {
+            title: {
+                text: 'Total Crimes'
+            },
+            scales: {
+                xAxes: xAxesOptions,
+                yAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Number of Crimes'
+                    }
+                }]
+            }
+        }
+    });
 
     var murdMansChart = new Chart(murdMansCtx, {
         type: 'line',
