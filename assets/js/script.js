@@ -22,6 +22,47 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
         totCrimesData.push(crimesData[i][16]);
     }
 
+    var allCrimesChartData = {
+        labels: yearLabels,
+        datasets: [
+            {
+                label: "Murder and Manslaughter",
+                data: murdMansData,
+                backgroundColor: "rgba(255, 32, 82, .8)"
+            },
+            {
+                label: "Rape",
+                data: rapeData,
+                backgroundColor: "rgba(255, 140, 0, .8)"
+            },
+            {
+                label: "Aggravated Assault",
+                data: aggrAssaultData,
+                backgroundColor: "rgba(253, 238, 0, .8)"
+            },
+            {
+                label: "Robbery",
+                data: robData,
+                backgroundColor: "rgba(3, 192, 60, .8)"
+            },
+            {
+                label: "Burglary",
+                data: burglData,
+                backgroundColor: "rgba(30, 144, 255, .8)"
+            },
+            {
+                label: "Theft (Larceny)",
+                data: larceTheftData,
+                backgroundColor: "rgba(50, 18, 122, .8)"
+            },
+            {
+                label: "Theft (Motor Vehicle)",
+                data: mvTheftData,
+                backgroundColor: "rgba(148, 0, 211, .8)"
+            }
+        ]
+    };
+
     var totCrimesChartData = {
         labels: yearLabels,
         datasets: [
@@ -108,6 +149,7 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
     Chart.defaults.global.elements.line.fill = false;
     Chart.defaults.global.elements.point.radius = 5;
 
+    var allCrimesCtx = $('#all-crimes-graph');
     var totCrimesCtx = $("#tot-crimes-graph");
     var murdMansCtx = $("#murd-mans-graph");
     var rapeCtx = $("#rape-graph");
@@ -123,6 +165,32 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
             labelString: 'Year'
         }
     }];
+
+    var allCrimesChart = new Chart(allCrimesCtx, {
+        type: 'horizontalBar',
+        data: allCrimesChartData,
+        options: {
+            title: {
+                text: 'All Crimes'
+            },
+            scales: {
+                xAxes: [{
+                    stacked: true,
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Crimes'
+                    }
+                }],
+                yAxes: [{
+                    stacked: true,
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Years'
+                    }
+                }]
+            }
+        }
+    });
 
     var totCrimesChart = new Chart(totCrimesCtx, {
         type: 'horizontalBar',
