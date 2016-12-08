@@ -1,5 +1,6 @@
 $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", function (JSONdata) {
     var crimesData = JSONdata.data;
+
     var yearLabels = [];
     var murdMansData = [];
     var rapeData = [];
@@ -9,6 +10,16 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
     var larceTheftData = [];
     var mvTheftData = [];
     var totCrimesData = [];
+
+    var yearLabelsRev = [];
+    var murdMansDataRev = [];
+    var rapeDataRev = [];
+    var aggrAssaultDataRev = [];
+    var robDataRev = [];
+    var burglDataRev = [];
+    var larceTheftDataRev = [];
+    var mvTheftDataRev = [];
+    var totCrimesDataRev = [];
 
     for (var i = 0; i < (crimesData.length); i++) {
         yearLabels.push(crimesData[i][8]);
@@ -20,55 +31,65 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
         larceTheftData.push(crimesData[i][14]);
         mvTheftData.push(crimesData[i][15]);
         totCrimesData.push(crimesData[i][16]);
+
+        yearLabelsRev.unshift(crimesData[i][8]);
+        murdMansDataRev.unshift(crimesData[i][9]);
+        rapeDataRev.unshift(crimesData[i][10]);
+        aggrAssaultDataRev.unshift(crimesData[i][12]);
+        robDataRev.unshift(crimesData[i][11]);
+        burglDataRev.unshift(crimesData[i][13]);
+        larceTheftDataRev.unshift(crimesData[i][14]);
+        mvTheftDataRev.unshift(crimesData[i][15]);
+        totCrimesDataRev.unshift(crimesData[i][16]);
     }
 
     var allCrimesChartData = {
-        labels: yearLabels,
+        labels: yearLabelsRev,
         datasets: [
             {
                 label: "Murder and Manslaughter",
-                data: murdMansData,
+                data: murdMansDataRev,
                 backgroundColor: "rgba(255, 32, 82, .8)"
             },
             {
                 label: "Rape",
-                data: rapeData,
+                data: rapeDataRev,
                 backgroundColor: "rgba(255, 140, 0, .8)"
             },
             {
                 label: "Aggravated Assault",
-                data: aggrAssaultData,
+                data: aggrAssaultDataRev,
                 backgroundColor: "rgba(253, 238, 0, .8)"
             },
             {
                 label: "Robbery",
-                data: robData,
+                data: robDataRev,
                 backgroundColor: "rgba(3, 192, 60, .8)"
             },
             {
                 label: "Burglary",
-                data: burglData,
+                data: burglDataRev,
                 backgroundColor: "rgba(30, 144, 255, .8)"
             },
             {
                 label: "Theft (Larceny)",
-                data: larceTheftData,
+                data: larceTheftDataRev,
                 backgroundColor: "rgba(50, 18, 122, .8)"
             },
             {
                 label: "Theft (Motor Vehicle)",
-                data: mvTheftData,
+                data: mvTheftDataRev,
                 backgroundColor: "rgba(148, 0, 211, .8)"
             }
         ]
     };
 
     var totCrimesChartData = {
-        labels: yearLabels,
+        labels: yearLabelsRev,
         datasets: [
             {
                 label: "Total Crimes",
-                data: totCrimesData
+                data: totCrimesDataRev
             }
         ]
     };
@@ -185,7 +206,7 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
                     stacked: true,
                     scaleLabel: {
                         display: true,
-                        labelString: 'Years'
+                        labelString: 'Year'
                     }
                 }]
             }
@@ -200,11 +221,16 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
                 text: 'Total Crimes'
             },
             scales: {
-                xAxes: xAxesOptions,
-                yAxes: [{
+                xAxes: [{
                     scaleLabel: {
                         display: true,
                         labelString: 'Number of Crimes'
+                    }
+                }],
+                yAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Year'
                     }
                 }]
             }
