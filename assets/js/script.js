@@ -44,41 +44,41 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
     }
 
     var allCrimesChartData = {
-        labels: yearLabelsRev,
+        labels: yearLabels,
         datasets: [
             {
                 label: "Murder and Manslaughter",
-                data: murdMansDataRev,
+                data: murdMansData,
                 backgroundColor: "rgba(255, 32, 82, .8)"
             },
             {
                 label: "Rape",
-                data: rapeDataRev,
+                data: rapeData,
                 backgroundColor: "rgba(255, 140, 0, .8)"
             },
             {
                 label: "Aggravated Assault",
-                data: aggrAssaultDataRev,
+                data: aggrAssaultData,
                 backgroundColor: "rgba(253, 238, 0, .8)"
             },
             {
                 label: "Robbery",
-                data: robDataRev,
+                data: robData,
                 backgroundColor: "rgba(3, 192, 60, .8)"
             },
             {
                 label: "Burglary",
-                data: burglDataRev,
+                data: burglData,
                 backgroundColor: "rgba(30, 144, 255, .8)"
             },
             {
                 label: "Theft (Larceny)",
-                data: larceTheftDataRev,
+                data: larceTheftData,
                 backgroundColor: "rgba(50, 18, 122, .8)"
             },
             {
                 label: "Theft (Motor Vehicle)",
-                data: mvTheftDataRev,
+                data: mvTheftData,
                 backgroundColor: "rgba(148, 0, 211, .8)"
             }
         ]
@@ -188,7 +188,7 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
     }];
 
     var allCrimesChart = new Chart(allCrimesCtx, {
-        type: 'horizontalBar',
+        type: 'bar',
         data: allCrimesChartData,
         options: {
             title: {
@@ -199,14 +199,14 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
                     stacked: true,
                     scaleLabel: {
                         display: true,
-                        labelString: 'Crimes'
+                        labelString: 'Year'
                     }
                 }],
                 yAxes: [{
                     stacked: true,
                     scaleLabel: {
                         display: true,
-                        labelString: 'Year'
+                        labelString: 'Crimes'
                     }
                 }]
             }
