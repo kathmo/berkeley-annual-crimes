@@ -11,16 +11,6 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
     var mvTheftData = [];
     var totCrimesData = [];
 
-    var yearLabelsRev = [];
-    var murdMansDataRev = [];
-    var rapeDataRev = [];
-    var aggrAssaultDataRev = [];
-    var robDataRev = [];
-    var burglDataRev = [];
-    var larceTheftDataRev = [];
-    var mvTheftDataRev = [];
-    var totCrimesDataRev = [];
-
     for (var i = 0; i < (crimesData.length); i++) {
         yearLabels.push(crimesData[i][8]);
         murdMansData.push(crimesData[i][9]);
@@ -31,16 +21,6 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
         larceTheftData.push(crimesData[i][14]);
         mvTheftData.push(crimesData[i][15]);
         totCrimesData.push(crimesData[i][16]);
-
-        yearLabelsRev.unshift(crimesData[i][8]);
-        murdMansDataRev.unshift(crimesData[i][9]);
-        rapeDataRev.unshift(crimesData[i][10]);
-        aggrAssaultDataRev.unshift(crimesData[i][12]);
-        robDataRev.unshift(crimesData[i][11]);
-        burglDataRev.unshift(crimesData[i][13]);
-        larceTheftDataRev.unshift(crimesData[i][14]);
-        mvTheftDataRev.unshift(crimesData[i][15]);
-        totCrimesDataRev.unshift(crimesData[i][16]);
     }
 
     var allCrimesChartData = {
@@ -85,11 +65,11 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
     };
 
     var totCrimesChartData = {
-        labels: yearLabelsRev,
+        labels: yearLabels,
         datasets: [
             {
                 label: "Total Crimes",
-                data: totCrimesDataRev
+                data: totCrimesData
             }
         ]
     };
@@ -214,23 +194,18 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
     });
 
     var totCrimesChart = new Chart(totCrimesCtx, {
-        type: 'horizontalBar',
+        type: 'line',
         data: totCrimesChartData,
         options: {
             title: {
                 text: 'Total Crimes'
             },
             scales: {
-                xAxes: [{
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'Number of Crimes'
-                    }
-                }],
+                xAxes: xAxesOptions,
                 yAxes: [{
                     scaleLabel: {
                         display: true,
-                        labelString: 'Year'
+                        labelString: 'Number of Crimes'
                     }
                 }]
             }
