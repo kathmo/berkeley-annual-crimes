@@ -164,7 +164,7 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
         ]
     };
 
-    Chart.defaults.global.responsive = false;
+    Chart.defaults.global.responsive = true;
     Chart.defaults.global.title.display = true;
     Chart.defaults.global.elements.line.tension = 0;
     Chart.defaults.global.elements.line.fill = false;
