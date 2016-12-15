@@ -184,6 +184,9 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
                 }],
                 yAxes: [{
                     stacked: true,
+                    ticks: {
+                        min: 0
+                    },
                     scaleLabel: {
                         display: true,
                         labelString: 'Crimes'
@@ -203,6 +206,9 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
             scales: {
                 xAxes: xAxesOptions,
                 yAxes: [{
+                    ticks: {
+                        min: 0
+                    },
                     scaleLabel: {
                         display: true,
                         labelString: 'Number of Crimes'
@@ -222,6 +228,9 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
             scales: {
                 xAxes: xAxesOptions,
                 yAxes: [{
+                    ticks: {
+                        min: 0
+                    },
                     scaleLabel: {
                         display: true,
                         labelString: 'Number of Murders and Manslaughters'
@@ -241,6 +250,9 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
             scales: {
                 xAxes: xAxesOptions,
                 yAxes: [{
+                    ticks: {
+                        min: 0
+                    },
                     scaleLabel: {
                         display: true,
                         labelString: 'Number of Rapes'
@@ -260,6 +272,9 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
             scales: {
                 xAxes: xAxesOptions,
                 yAxes: [{
+                    ticks: {
+                        min: 0
+                    },
                     scaleLabel: {
                         display: true,
                         labelString: 'Number of Aggravated Assaults'
@@ -279,6 +294,9 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
             scales: {
                 xAxes: xAxesOptions,
                 yAxes: [{
+                    ticks: {
+                        min: 0
+                    },
                     scaleLabel: {
                         display: true,
                         labelString: 'Number of Robberies'
@@ -298,6 +316,9 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
             scales: {
                 xAxes: xAxesOptions,
                 yAxes: [{
+                    ticks: {
+                        min: 0
+                    },
                     scaleLabel: {
                         display: true,
                         labelString: 'Number of Burglaries'
@@ -317,6 +338,9 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
             scales: {
                 xAxes: xAxesOptions,
                 yAxes: [{
+                    ticks: {
+                        min: 0
+                    },
                     scaleLabel: {
                         display: true,
                         labelString: 'Number of Thefts (Larcenies)'
@@ -336,6 +360,9 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
             scales: {
                 xAxes: xAxesOptions,
                 yAxes: [{
+                    ticks: {
+                        min: 0
+                    },
                     scaleLabel: {
                         display: true,
                         labelString: 'Number of Thefts (Motor Vehicles)'
