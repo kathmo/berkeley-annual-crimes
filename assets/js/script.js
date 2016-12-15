@@ -236,6 +236,9 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
                         labelString: 'Number of Murders and Manslaughters'
                     }
                 }]
+            },
+            legend: {
+                display: false
             }
         }
     });
@@ -258,6 +261,9 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
                         labelString: 'Number of Rapes'
                     }
                 }]
+            },
+            legend: {
+                display: false
             }
         }
     });
@@ -280,6 +286,9 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
                         labelString: 'Number of Aggravated Assaults'
                     }
                 }]
+            },
+            legend: {
+                display: false
             }
         }
     });
@@ -302,6 +311,9 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
                         labelString: 'Number of Robberies'
                     }
                 }]
+            },
+            legend: {
+                display: false
             }
         }
     });
@@ -324,6 +336,9 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
                         labelString: 'Number of Burglaries'
                     }
                 }]
+            },
+            legend: {
+                display: false
             }
         }
     });
@@ -346,6 +361,9 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
                         labelString: 'Number of Thefts (Larcenies)'
                     }
                 }]
+            },
+            legend: {
+                display: false
             }
         }
     });
@@ -368,6 +386,9 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
                         labelString: 'Number of Thefts (Motor Vehicles)'
                     }
                 }]
+            },
+            legend: {
+                display: false
             }
         }
     });
