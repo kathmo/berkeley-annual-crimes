@@ -214,6 +214,9 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
                         labelString: 'Number of Crimes'
                     }
                 }]
+            },
+            legend: {
+                display: false
             }
         }
     });
