@@ -7,98 +7,98 @@
     <meta name="description" content="Berkeley Annual Crimes">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/tachyons.min.css" />
+    <link rel="stylesheet" href="assets/css/tachyons-verbose.min.css" />
     <link rel="stylesheet" href="assets/css/custom.css" />
   </head>
 
   <body>
-    <div class="cf">
-      <div class="fl w-100 pa4 pv4">
+    <div class="clearfix">
+      <div class="float-left width-100p padding-large">
         <h1>Crime in Berkeley, CA</h1>
         <p>Run by the FBI, the Uniform Crime Reporting (UCR) Program defines eight crimes as Part I offenses: criminal homicide, forcible rape, robbery, aggravated assault, burglary, larceny (excluding motor vehicle theft), motor vehicle theft, and arson.</p>
         <p><a href="https://data.cityofberkeley.info/Public-Safety/Berkeley-PD-UCR-Annual-Part-I-Crimes/efkp-2py4/data">Data from the City of Berkeley Open Data portal</a> shows the annual totals of UCR Part I crimes, except for arson, reported to the Berkeley Police Department since 1985. The official description of the dataset can be found on the <a href="https://data.cityofberkeley.info/Public-Safety/Berkeley-PD-UCR-Annual-Part-I-Crimes/efkp-2py4">portal website</a>. The crime definitions stated below are as defined by the UCR Program on the <a href="https://www.ucrdatatool.gov/offenses.cfm">UCR program website</a>.</p>
       </div>
 
-      <div class="fl w-100 pa4 pv4">
+      <div class="float-left width-100p padding-large">
         <canvas id="tot-crimes-graph" width="1600" height="900"></canvas>
       </div>
 
-      <div class="fl w-100 pa4 pv4">
+      <div class="float-left width-100p padding-large">
         <h1>Violent Crimes</h1>
       </div>
 
-      <div class="fl w-100 w-25-l pa4 pv4">
+      <div class="float-left width-100p width-25p-l padding-large">
         <h2>Criminal Homicide</h2>
         <p><strong>Murder and nonnegligent manslaughter:</strong> the willful (nonnegligent) killing of one human being by another.</p>
         <p>Deaths caused by negligence, attempts to kill, assaults to kill, suicides, and accidental deaths are excluded. Justifiable homicides are classified separately.</p>
         <p><strong>Manslaughter by negligence:</strong> the killing of another person through gross negligence.</p>
         <p>Deaths of persons due to their own negligence, accidental deaths not resulting from gross negligence, and traffic fatalities are excluded.</p>
       </div>
-      <div class="fl w-100 w-75-l pa4 pv4">
+      <div class="float-left width-100p width-75p-l padding-large">
         <canvas id="murd-mans-graph" width="1600" height="900"></canvas>
       </div>
 
-      <div class="fl w-100 w-25-l pa4 pv4">
+      <div class="float-left width-100p width-25p-l padding-large">
         <h2>Forcible Rape</h2>
         <p>The carnal knowledge of a female forcibly and against her will. Rapes by force and attempts or assaults to rape, regardless of the age of the victim, are included.</p>
         <p>Statutory offenses (no force used and victim under age of consent) are excluded.</p>
         <p><strong>Note:</strong> In December 2011, the UCR Program changed its SRS definition of rape: "Penetration, no matter how slight, of the vagina or anus with any body part or object, or oral penetration by a sex organ of another person, without the consent of the victim." The effect of this definition change is not seen in reported crime data until after January 2013. Data reported from prior years has not been revised.</p>
       </div>
-      <div class="fl w-100 w-75-l pa4 pv4">
+      <div class="float-left width-100p width-75p-l padding-large">
         <canvas id="rape-graph" width="1600" height="900"></canvas>
       </div>
 
-      <div class="fl w-100 w-25-l pa4 pv4">
+      <div class="float-left width-100p width-25p-l padding-large">
         <h2>Aggravated Assault</h2>
         <p>An unlawful attack by one person upon another for the purpose of inflicting severe or aggravated bodily injury. This type of assault usually is accompanied by the use of a weapon or by means likely to produce death or great bodily harm.</p>
         <p>Simple assaults are excluded.</p>
       </div>
-      <div class="fl w-100 w-75-l pa4 pv4">
+      <div class="float-left width-100p width-75p-l padding-large">
         <canvas id="aggr-assault-graph" width="1600" height="900"></canvas>
       </div>
 
-      <div class="fl w-100 w-25-l pa4 pv4">
+      <div class="float-left width-100p width-25p-l padding-large">
         <h2>Robbery</h2>
         <p>The taking or attempting to take anything of value from the care, custody, or control of a person or persons by force or threat of force or violence and/or by putting the victim in fear.</p>
       </div>
-      <div class="fl w-100 w-75-l pa4 pv4">
+      <div class="float-left width-100p width-75p-l padding-large">
         <canvas id="rob-graph" width="1600" height="900"></canvas>
       </div>
 
-      <div class="fl w-100 pa4 pv4">
+      <div class="float-left width-100p padding-large">
         <h1>Property Crimes</h1>
       </div>
 
-      <div class="fl w-100 w-25-l pa4 pv4">
+      <div class="float-left width-100p width-25p-l padding-large">
         <h2>Burglary</h2>
         <p>The unlawful entry of a structure to commit a felony or a theft. Attempted forcible entry is included.</p>
       </div>
-      <div class="fl w-100 w-75-l pa4 pv4">
+      <div class="float-left width-100p width-75p-l padding-large">
         <canvas id="burgl-graph" width="1600" height="900"></canvas>
       </div>
 
-      <div class="fl w-100 w-25-l pa4 pv4">
+      <div class="float-left width-100p width-25p-l padding-large">
         <h2>Larceny (Excluding Motor Vehicle Theft)</h2>
         <p>The unlawful taking, carrying, leading, or riding away of property from the possession or constructive possession of another. Examples are thefts of bicycles, motor vehicle parts and accessories, shoplifting, pocketpicking, or the stealing of any property or article that is not taken by force and violence or by fraud. Attempted larcenies are included.</p>
         <p>Embezzlement, confidence games, forgery, check fraud, etc., are excluded.</p>
       </div>
-      <div class="fl w-100 w-75-l pa4 pv4">
+      <div class="float-left width-100p width-75p-l padding-large">
         <canvas id="larce-theft-graph" width="1600" height="900"></canvas>
       </div>
 
-      <div class="fl w-100 w-25-l pa4 pv4">
+      <div class="float-left width-100p width-25p-l padding-large">
         <h2>Motor Vehicle Theft</h2>
         <p>The theft or attempted theft of a motor vehicle. A motor vehicle is self-propelled and runs on land surface and not on rails.</p>
         <p>Motorboats, construction equipment, airplanes, and farming equipment are excluded.</p>
       </div>
-      <div class="fl w-100 w-75-l pa4 pv4">
+      <div class="float-left width-100p width-75p-l padding-large">
         <canvas id="mv-theft-graph" width="1600" height="900"></canvas>
       </div>
 
-      <div class="fl w-100 pa4 pv4">
+      <div class="float-left width-100p padding-large">
         <canvas id="all-crimes-graph" width="1600" height="900"></canvas>
       </div>
-    </div><!-- cf -->
+    </div><!-- .clearfix -->
 
     <!-- scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
