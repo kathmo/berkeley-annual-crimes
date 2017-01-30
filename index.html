@@ -12,18 +12,22 @@
   </head>
 
   <body>
-    <div class="clearfix">
-      <div class="float-left width-100p padding-large">
+    <div class="clearfix lineheight-copy backgroundcolor-white black80">
+      <div class="float-left width-100p padding-large f3 lineheight-title backgroundcolor-black80 white90">
         <h1>Crime in Berkeley, CA</h1>
-        <p>Run by the FBI, the Uniform Crime Reporting (UCR) Program defines eight crimes as Part I offenses: criminal homicide, forcible rape, robbery, aggravated assault, burglary, larceny (excluding motor vehicle theft), motor vehicle theft, and arson.</p>
-        <p><a href="https://data.cityofberkeley.info/Public-Safety/Berkeley-PD-UCR-Annual-Part-I-Crimes/efkp-2py4/data">Data from the City of Berkeley Open Data portal</a> shows the annual totals of UCR Part I crimes, except for arson, reported to the Berkeley Police Department since 1985. The official description of the dataset can be found on the <a href="https://data.cityofberkeley.info/Public-Safety/Berkeley-PD-UCR-Annual-Part-I-Crimes/efkp-2py4">portal website</a>. The crime definitions stated below are as defined by the UCR Program on the <a href="https://www.ucrdatatool.gov/offenses.cfm">UCR program website</a>.</p>
       </div>
 
-      <div class="float-left width-100p padding-large">
-        <canvas id="tot-crimes-graph" width="1600" height="900"></canvas>
+      <div class="clear-both overflow-hidden">
+        <div class="width-twothirds padding-large">
+          <p>Run by the FBI, the Uniform Crime Reporting (UCR) Program defines eight crimes as Part I offenses: criminal homicide, forcible rape, robbery, aggravated assault, burglary, larceny (excluding motor vehicle theft), motor vehicle theft, and arson.</p>
+          <p><a href="https://data.cityofberkeley.info/Public-Safety/Berkeley-PD-UCR-Annual-Part-I-Crimes/efkp-2py4/data">Data from the City of Berkeley Open Data portal</a> shows the annual totals of UCR Part I crimes, except for arson, reported to the Berkeley Police Department since 1985. The official description of the dataset can be found on the <a href="https://data.cityofberkeley.info/Public-Safety/Berkeley-PD-UCR-Annual-Part-I-Crimes/efkp-2py4">portal website</a>. The crime definitions stated below are as defined by the UCR Program on the <a href="https://www.ucrdatatool.gov/offenses.cfm">UCR program website</a>.</p>
+        </div>
+        <div class="float-left width-100p padding-large">
+          <canvas id="tot-crimes-graph" width="1600" height="900"></canvas>
+        </div>
       </div>
 
-      <div class="float-left width-100p padding-large textalign-center">
+      <div class="float-left width-100p padding-large f4 backgroundcolor-black80 white90">
         <h1>Violent Crimes</h1>
       </div>
 
@@ -40,7 +44,7 @@
         </div>
       </div>
 
-      <div class="clear-both overflow-hidden">
+      <div class="clear-both overflow-hidden backgroundcolor-black10 black90">
         <div class="float-left width-100p width-25p-l padding-large">
           <h2>Forcible Rape</h2>
           <p>The carnal knowledge of a female forcibly and against her will. Rapes by force and attempts or assaults to rape, regardless of the age of the victim, are included.</p>
@@ -63,7 +67,7 @@
         </div>
       </div>
 
-      <div class="clear-both overflow-hidden">
+      <div class="clear-both overflow-hidden backgroundcolor-black10 black90">
         <div class="float-left width-100p width-25p-l padding-large">
           <h2>Robbery</h2>
           <p>The taking or attempting to take anything of value from the care, custody, or control of a person or persons by force or threat of force or violence and/or by putting the victim in fear.</p>
@@ -73,7 +77,7 @@
         </div>
       </div>
 
-      <div class="float-left width-100p padding-large textalign-center">
+      <div class="float-left width-100p padding-large backgroundcolor-black80 white90">
         <h1>Property Crimes</h1>
       </div>
 
@@ -87,7 +91,7 @@
         </div>
       </div>
 
-      <div class="clear-both overflow-hidden">
+      <div class="clear-both overflow-hidden backgroundcolor-black10 black90">
         <div class="float-left clear-both width-100p width-25p-l padding-large">
           <h2>Larceny (Excluding Motor Vehicle Theft)</h2>
           <p>The unlawful taking, carrying, leading, or riding away of property from the possession or constructive possession of another. Examples are thefts of bicycles, motor vehicle parts and accessories, shoplifting, pocketpicking, or the stealing of any property or article that is not taken by force and violence or by fraud. Attempted larcenies are included.</p>
@@ -109,7 +113,7 @@
         </div>
       </div>
 
-      <div class="float-left width-100p padding-large">
+      <div class="float-left width-100p padding-large backgroundcolor-black10 black90">
         <canvas id="all-crimes-graph" width="1600" height="900"></canvas>
       </div>
     </div><!-- .clearfix -->
