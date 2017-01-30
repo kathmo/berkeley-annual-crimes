@@ -321,7 +321,7 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
         }
     });
 
-    var robChart = new Chart(burglCtx, {
+    var burglChart = new Chart(burglCtx, {
         type: 'line',
         data: burglChartData,
         options: {
