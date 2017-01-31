@@ -1,5 +1,5 @@
 $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", function (JSONdata) {
-    var crimesData = JSONdata.data;
+    var crimeData = JSONdata.data;
 
     var yearLabels = [];
     var murdMansData = [];
@@ -7,20 +7,21 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
     var aggrAssaultData = [];
     var robData = [];
     var burglData = [];
-    var larceTheftData = [];
+    var larceData = [];
     var mvTheftData = [];
-    var totCrimesData = [];
+    var totCrimeData = [];
 
-    for (var i = 0; i < (crimesData.length); i++) {
-        yearLabels.push(crimesData[i][8]);
-        murdMansData.push(crimesData[i][9]);
-        rapeData.push(crimesData[i][10]);
-        aggrAssaultData.push(crimesData[i][12]);
-        robData.push(crimesData[i][11]);
-        burglData.push(crimesData[i][13]);
-        larceTheftData.push(crimesData[i][14]);
-        mvTheftData.push(crimesData[i][15]);
-        totCrimesData.push(crimesData[i][16]);
+    // Extract and collect data for each crime
+    for (var i = 0; i < (crimeData.length); i++) {
+        yearLabels.push(crimeData[i][8]);
+        murdMansData.push(crimeData[i][9]);
+        rapeData.push(crimeData[i][10]);
+        aggrAssaultData.push(crimeData[i][12]);
+        robData.push(crimeData[i][11]);
+        burglData.push(crimeData[i][13]);
+        larceData.push(crimeData[i][14]);
+        mvTheftData.push(crimeData[i][15]);
+        totCrimeData.push(crimeData[i][16]);
     }
 
     var allCrimesChartData = {
@@ -53,7 +54,7 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
             },
             {
                 label: "Theft (Larceny)",
-                data: larceTheftData,
+                data: larceData,
                 backgroundColor: "rgba(50, 18, 122, .8)"
             },
             {
@@ -69,7 +70,7 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
         datasets: [
             {
                 label: "Total Crimes",
-                data: totCrimesData
+                data: totCrimeData
             }
         ]
     };
@@ -124,12 +125,12 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
         ]
     };
 
-    var larceTheftChartData = {
+    var larceChartData = {
         labels: yearLabels,
         datasets: [
             {
                 label: "Theft (Larceny)",
-                data: larceTheftData
+                data: larceData
             }
         ]
     };
@@ -144,6 +145,8 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
         ]
     };
 
+
+    // Set some default settings for all charts
     Chart.defaults.global.responsive = true;
     Chart.defaults.global.title.display = true;
     Chart.defaults.global.elements.line.tension = 0;
@@ -157,7 +160,7 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
     var aggrAssaultCtx = $("#aggr-assault-graph");
     var robCtx = $("#rob-graph");
     var burglCtx = $("#burgl-graph");
-    var larceTheftCtx = $("#larce-theft-graph");
+    var larceCtx = $("#larce-theft-graph");
     var mvTheftCtx = $("#mv-theft-graph");
 
     var xAxesOptions = [{
@@ -346,9 +349,9 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
         }
     });
 
-    var larceTheftChart = new Chart(larceTheftCtx, {
+    var larceChart = new Chart(larceCtx, {
         type: 'line',
-        data: larceTheftChartData,
+        data: larceChartData,
         options: {
             title: {
                 text: 'Theft (Larceny)'
