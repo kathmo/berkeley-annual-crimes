@@ -148,7 +148,7 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
 
     // Set some default settings for all charts
     Chart.defaults.global.responsive = true;
-    Chart.defaults.global.title.display = true;
+    Chart.defaults.global.title.display = false;
     Chart.defaults.global.elements.line.tension = 0;
     Chart.defaults.global.elements.line.fill = false;
     Chart.defaults.global.elements.point.radius = 5;
@@ -229,7 +229,7 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
         data: murdMansChartData,
         options: {
             title: {
-                text: 'Murder and Manslaughter'
+                text: 'Criminal Homicide'
             },
             scales: {
                 xAxes: xAxesOptions,
@@ -239,7 +239,7 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
                     },
                     scaleLabel: {
                         display: true,
-                        labelString: 'Number of Murders and Manslaughters'
+                        labelString: 'Number of Criminal Homicides'
                     }
                 }]
             },
@@ -254,7 +254,7 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
         data: rapeChartData,
         options: {
             title: {
-                text: 'Rape'
+                text: 'Forcible Rape'
             },
             scales: {
                 xAxes: xAxesOptions,
@@ -264,7 +264,7 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
                     },
                     scaleLabel: {
                         display: true,
-                        labelString: 'Number of Rapes'
+                        labelString: 'Number of Forcible Rapes'
                     }
                 }]
             },
@@ -354,7 +354,7 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
         data: larceChartData,
         options: {
             title: {
-                text: 'Theft (Larceny)'
+                text: 'Larceny (Excluding Motor Vehical Thefts)'
             },
             scales: {
                 xAxes: xAxesOptions,
@@ -364,7 +364,7 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
                     },
                     scaleLabel: {
                         display: true,
-                        labelString: 'Number of Thefts (Larcenies)'
+                        labelString: 'Number of Larcenies (Excluding Motor Vehical Thefts)'
                     }
                 }]
             },
@@ -379,7 +379,7 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
         data: mvTheftChartData,
         options: {
             title: {
-                text: 'Theft (Motor Vehicle)'
+                text: 'Motor Vehicle Theft'
             },
             scales: {
                 xAxes: xAxesOptions,
@@ -389,7 +389,7 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
                     },
                     scaleLabel: {
                         display: true,
-                        labelString: 'Number of Thefts (Motor Vehicles)'
+                        labelString: 'Number of Motor Vehicle Thefts'
                     }
                 }]
             },
