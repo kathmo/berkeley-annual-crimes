@@ -1,150 +1,28 @@
 $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", function (JSONdata) {
-    var crimeData = JSONdata.data;
+    var dataCrime = JSONdata.data;
 
-    var yearLabels = [];
-    var murdMansData = [];
-    var rapeData = [];
-    var aggrAssaultData = [];
-    var robData = [];
-    var burglData = [];
-    var larceData = [];
-    var mvTheftData = [];
-    var totCrimeData = [];
+    var lblYear = [];
+    var dataMurdMans = [];
+    var dataRape = [];
+    var dataAggrAssault = [];
+    var dataRob = [];
+    var dataBurgl = [];
+    var dataLarce = [];
+    var dataMVtheft = [];
+    var dataTot = [];
 
     // Extract and collect data for each crime
-    for (var i = 0; i < (crimeData.length); i++) {
-        yearLabels.push(crimeData[i][8]);
-        murdMansData.push(crimeData[i][9]);
-        rapeData.push(crimeData[i][10]);
-        aggrAssaultData.push(crimeData[i][12]);
-        robData.push(crimeData[i][11]);
-        burglData.push(crimeData[i][13]);
-        larceData.push(crimeData[i][14]);
-        mvTheftData.push(crimeData[i][15]);
-        totCrimeData.push(crimeData[i][16]);
+    for (var i = 0; i < (dataCrime.length); i++) {
+        lblYear.push(dataCrime[i][8]);
+        dataMurdMans.push(dataCrime[i][9]);
+        dataRape.push(dataCrime[i][10]);
+        dataAggrAssault.push(dataCrime[i][12]);
+        dataRob.push(dataCrime[i][11]);
+        dataBurgl.push(dataCrime[i][13]);
+        dataLarce.push(dataCrime[i][14]);
+        dataMVtheft.push(dataCrime[i][15]);
+        dataTot.push(dataCrime[i][16]);
     }
-
-    var allCrimesChartData = {
-        labels: yearLabels,
-        datasets: [
-            {
-                label: "Murder and Manslaughter",
-                data: murdMansData,
-                backgroundColor: "rgba(255, 32, 82, .8)"
-            },
-            {
-                label: "Rape",
-                data: rapeData,
-                backgroundColor: "rgba(255, 140, 0, .8)"
-            },
-            {
-                label: "Aggravated Assault",
-                data: aggrAssaultData,
-                backgroundColor: "rgba(253, 238, 0, .8)"
-            },
-            {
-                label: "Robbery",
-                data: robData,
-                backgroundColor: "rgba(3, 192, 60, .8)"
-            },
-            {
-                label: "Burglary",
-                data: burglData,
-                backgroundColor: "rgba(30, 144, 255, .8)"
-            },
-            {
-                label: "Theft (Larceny)",
-                data: larceData,
-                backgroundColor: "rgba(50, 18, 122, .8)"
-            },
-            {
-                label: "Theft (Motor Vehicle)",
-                data: mvTheftData,
-                backgroundColor: "rgba(148, 0, 211, .8)"
-            }
-        ]
-    };
-
-    var totCrimesChartData = {
-        labels: yearLabels,
-        datasets: [
-            {
-                label: "Total Crimes",
-                data: totCrimeData
-            }
-        ]
-    };
-
-    var murdMansChartData = {
-        labels: yearLabels,
-        datasets: [
-            {
-                label: "Murder and Manslaughter",
-                data: murdMansData
-            }
-        ]
-    };
-
-    var rapeChartData = {
-        labels: yearLabels,
-        datasets: [
-            {
-                label: "Rape",
-                data: rapeData
-            }
-        ]
-    };
-
-    var aggrAssaultChartData = {
-        labels: yearLabels,
-        datasets: [
-            {
-                label: "Aggravated Assault",
-                data: aggrAssaultData
-            }
-        ]
-    };
-
-    var robChartData = {
-        labels: yearLabels,
-        datasets: [
-            {
-                label: "Robbery",
-                data: robData
-            }
-        ]
-    };
-
-    var burglChartData = {
-        labels: yearLabels,
-        datasets: [
-            {
-                label: "Burglary",
-                data: burglData
-            }
-        ]
-    };
-
-    var larceChartData = {
-        labels: yearLabels,
-        datasets: [
-            {
-                label: "Theft (Larceny)",
-                data: larceData
-            }
-        ]
-    };
-
-    var mvTheftChartData = {
-        labels: yearLabels,
-        datasets: [
-            {
-                label: "Theft (Motor Vehicle)",
-                data: mvTheftData
-            }
-        ]
-    };
-
 
     // Set some default settings for all charts
     Chart.defaults.global.responsive = true;
@@ -153,16 +31,141 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
     Chart.defaults.global.elements.line.fill = false;
     Chart.defaults.global.elements.point.radius = 5;
 
-    var allCrimesCtx = $('#all-crimes-graph');
-    var totCrimesCtx = $("#tot-crimes-graph");
-    var murdMansCtx = $("#murd-mans-graph");
+    var totCrimeCtx = $("#tot-crime-graph");
+    var murdMansCtx = $("#crim-hom-graph");
     var rapeCtx = $("#rape-graph");
     var aggrAssaultCtx = $("#aggr-assault-graph");
     var robCtx = $("#rob-graph");
     var burglCtx = $("#burgl-graph");
     var larceCtx = $("#larce-theft-graph");
     var mvTheftCtx = $("#mv-theft-graph");
+    var allCrimeCtx = $('#all-crime-graph');
 
+
+    // Define the data for each chart
+
+    var chartDataTotCrime = {
+        labels: lblYear,
+        datasets: [
+            {
+                label: "Total Crimes",
+                data: dataTot
+            }
+        ]
+    };
+
+    var chartDataMurdMans = {
+        labels: lblYear,
+        datasets: [
+            {
+                label: "Criminal Homicide",
+                data: dataMurdMans
+            }
+        ]
+    };
+
+    var chartDataRape = {
+        labels: lblYear,
+        datasets: [
+            {
+                label: "Rape",
+                data: dataRape
+            }
+        ]
+    };
+
+    var chartDataAggrAssault = {
+        labels: lblYear,
+        datasets: [
+            {
+                label: "Aggravated Assault",
+                data: dataAggrAssault
+            }
+        ]
+    };
+
+    var chartDataRob = {
+        labels: lblYear,
+        datasets: [
+            {
+                label: "Robbery",
+                data: dataRob
+            }
+        ]
+    };
+
+    var chartDataBurgl = {
+        labels: lblYear,
+        datasets: [
+            {
+                label: "Burglary",
+                data: dataBurgl
+            }
+        ]
+    };
+
+    var chartDataLarce = {
+        labels: lblYear,
+        datasets: [
+            {
+                label: "Larceny (Excluding Motor Vehicle Theft)",
+                data: dataLarce
+            }
+        ]
+    };
+
+    var chartDataMVtheft = {
+        labels: lblYear,
+        datasets: [
+            {
+                label: "Motor Vehicle Theft",
+                data: dataMVtheft
+            }
+        ]
+    };
+
+    var chartDataAllCrime = {
+        labels: lblYear,
+        datasets: [
+            {
+                label: "Criminal Homicide",
+                data: dataMurdMans,
+                backgroundColor: "rgba(255, 32, 82, .8)"
+            },
+            {
+                label: "Rape",
+                data: dataRape,
+                backgroundColor: "rgba(255, 140, 0, .8)"
+            },
+            {
+                label: "Aggravated Assault",
+                data: dataAggrAssault,
+                backgroundColor: "rgba(253, 238, 0, .8)"
+            },
+            {
+                label: "Robbery",
+                data: dataRob,
+                backgroundColor: "rgba(3, 192, 60, .8)"
+            },
+            {
+                label: "Burglary",
+                data: dataBurgl,
+                backgroundColor: "rgba(30, 144, 255, .8)"
+            },
+            {
+                label: "Theft (Larceny)",
+                data: dataLarce,
+                backgroundColor: "rgba(50, 18, 122, .8)"
+            },
+            {
+                label: "Theft (Motor Vehicle)",
+                data: dataMVtheft,
+                backgroundColor: "rgba(148, 0, 211, .8)"
+            }
+        ]
+    };
+
+    // Define the x-axes for all charts
     var xAxesOptions = [{
         scaleLabel: {
             display: true,
@@ -170,38 +173,12 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
         }
     }];
 
-    var allCrimesChart = new Chart(allCrimesCtx, {
-        type: 'bar',
-        data: allCrimesChartData,
-        options: {
-            title: {
-                text: 'All Crimes'
-            },
-            scales: {
-                xAxes: [{
-                    stacked: true,
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'Year'
-                    }
-                }],
-                yAxes: [{
-                    stacked: true,
-                    ticks: {
-                        min: 0
-                    },
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'Crimes'
-                    }
-                }]
-            }
-        }
-    });
 
-    var totCrimesChart = new Chart(totCrimesCtx, {
+    // Define the charts
+
+    var totCrimeChart = new Chart(totCrimeCtx, {
         type: 'line',
-        data: totCrimesChartData,
+        data: chartDataTotCrime,
         options: {
             title: {
                 text: 'Total Crimes'
@@ -226,7 +203,7 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
 
     var murdMansChart = new Chart(murdMansCtx, {
         type: 'line',
-        data: murdMansChartData,
+        data: chartDataMurdMans,
         options: {
             title: {
                 text: 'Criminal Homicide'
@@ -251,7 +228,7 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
 
     var rapeChart = new Chart(rapeCtx, {
         type: 'line',
-        data: rapeChartData,
+        data: chartDataRape,
         options: {
             title: {
                 text: 'Forcible Rape'
@@ -276,7 +253,7 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
 
     var aggrAssaultChart = new Chart(aggrAssaultCtx, {
         type: 'line',
-        data: aggrAssaultChartData,
+        data: chartDataAggrAssault,
         options: {
             title: {
                 text: 'Aggravated Assault'
@@ -301,7 +278,7 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
 
     var robChart = new Chart(robCtx, {
         type: 'line',
-        data: robChartData,
+        data: chartDataRob,
         options: {
             title: {
                 text: 'Robbery'
@@ -326,7 +303,7 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
 
     var burglChart = new Chart(burglCtx, {
         type: 'line',
-        data: burglChartData,
+        data: chartDataBurgl,
         options: {
             title: {
                 text: 'Burglary'
@@ -351,7 +328,7 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
 
     var larceChart = new Chart(larceCtx, {
         type: 'line',
-        data: larceChartData,
+        data: chartDataLarce,
         options: {
             title: {
                 text: 'Larceny (Excluding Motor Vehical Thefts)'
@@ -376,7 +353,7 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
 
     var mvTheftChart = new Chart(mvTheftCtx, {
         type: 'line',
-        data: mvTheftChartData,
+        data: chartDataMVtheft,
         options: {
             title: {
                 text: 'Motor Vehicle Theft'
@@ -395,6 +372,35 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
             },
             legend: {
                 display: false
+            }
+        }
+    });
+
+    var allCrimeChart = new Chart(allCrimeCtx, {
+        type: 'bar',
+        data: chartDataAllCrime,
+        options: {
+            title: {
+                text: 'All Crimes'
+            },
+            scales: {
+                xAxes: [{
+                    stacked: true,
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Year'
+                    }
+                }],
+                yAxes: [{
+                    stacked: true,
+                    ticks: {
+                        min: 0
+                    },
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Crimes'
+                    }
+                }]
             }
         }
     });
