@@ -9,10 +9,10 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
     var dataBurgl = [];
     var dataLarce = [];
     var dataMVtheft = [];
-    var dataTot = [];
+    var dataTotCrime = [];
 
     // Extract and collect data for each crime
-    for (var i = 0; i < (dataCrime.length); i++) {
+    for (var i = 0; i < (dataCrime.length - 1); i++) {
         lblYear.push(dataCrime[i][8]);
         dataMurdMans.push(dataCrime[i][9]);
         dataRape.push(dataCrime[i][10]);
@@ -21,12 +21,13 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
         dataBurgl.push(dataCrime[i][13]);
         dataLarce.push(dataCrime[i][14]);
         dataMVtheft.push(dataCrime[i][15]);
-        dataTot.push(dataCrime[i][16]);
+        dataTotCrime.push(dataCrime[i][16]);
     }
 
     // Set some default settings for all charts
     Chart.defaults.global.responsive = true;
     Chart.defaults.global.title.display = false;
+    Chart.defaults.global.defaultFontColor = '#333333';
     Chart.defaults.global.elements.line.tension = 0;
     Chart.defaults.global.elements.line.fill = false;
     Chart.defaults.global.elements.point.radius = 5;
@@ -41,6 +42,15 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
     var mvTheftCtx = $("#mv-theft-graph");
     var allCrimeCtx = $('#all-crime-graph');
 
+    // Define data colors
+    var colorTotCrime = "rgba(33, 33, 33, .8)";
+    var colorMurdMans = "rgba(196, 30, 27, .8)";
+    var colorRape = "rgba(0, 140, 153, .8)";
+    var colorAggrAssault = "rgba(255, 167, 9, .8)";
+    var colorRob = "rgba(138, 102, 76, .8)";
+    var colorBurgl = "rgba(0, 81, 172, .8)";
+    var colorLarce = "rgba(50, 18, 122, .8)";
+    var colorMVtheft = "rgba(155, 7, 94, .8)";
 
     // Define the data for each chart
 
@@ -49,7 +59,9 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
         datasets: [
             {
                 label: "Total Crimes",
-                data: dataTot
+                data: dataTotCrime,
+                borderColor: colorTotCrime,
+                backgroundColor: colorTotCrime
             }
         ]
     };
@@ -59,7 +71,9 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
         datasets: [
             {
                 label: "Criminal Homicide",
-                data: dataMurdMans
+                data: dataMurdMans,
+                borderColor: colorMurdMans,
+                backgroundColor: colorMurdMans
             }
         ]
     };
@@ -69,7 +83,9 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
         datasets: [
             {
                 label: "Rape",
-                data: dataRape
+                data: dataRape,
+                borderColor: colorRape,
+                backgroundColor: colorRape
             }
         ]
     };
@@ -79,7 +95,9 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
         datasets: [
             {
                 label: "Aggravated Assault",
-                data: dataAggrAssault
+                data: dataAggrAssault,
+                borderColor: colorAggrAssault,
+                backgroundColor: colorAggrAssault
             }
         ]
     };
@@ -89,7 +107,9 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
         datasets: [
             {
                 label: "Robbery",
-                data: dataRob
+                data: dataRob,
+                borderColor: colorRob,
+                backgroundColor: colorRob
             }
         ]
     };
@@ -99,7 +119,9 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
         datasets: [
             {
                 label: "Burglary",
-                data: dataBurgl
+                data: dataBurgl,
+                borderColor: colorBurgl,
+                backgroundColor: colorBurgl
             }
         ]
     };
@@ -109,7 +131,9 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
         datasets: [
             {
                 label: "Larceny (Excluding Motor Vehicle Theft)",
-                data: dataLarce
+                data: dataLarce,
+                borderColor: colorLarce,
+                backgroundColor: colorLarce
             }
         ]
     };
@@ -119,7 +143,9 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
         datasets: [
             {
                 label: "Motor Vehicle Theft",
-                data: dataMVtheft
+                data: dataMVtheft,
+                borderColor: colorMVtheft,
+                backgroundColor: colorMVtheft
             }
         ]
     };
@@ -130,37 +156,44 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
             {
                 label: "Criminal Homicide",
                 data: dataMurdMans,
-                backgroundColor: "rgba(255, 32, 82, .8)"
+                borderColor: colorMurdMans,
+                backgroundColor: colorMurdMans
             },
             {
                 label: "Rape",
                 data: dataRape,
-                backgroundColor: "rgba(255, 140, 0, .8)"
+                borderColor: colorRape,
+                backgroundColor: colorRape
             },
             {
                 label: "Aggravated Assault",
                 data: dataAggrAssault,
-                backgroundColor: "rgba(253, 238, 0, .8)"
+                borderColor: colorAggrAssault,
+                backgroundColor: colorAggrAssault
             },
             {
                 label: "Robbery",
                 data: dataRob,
-                backgroundColor: "rgba(3, 192, 60, .8)"
+                borderColor: colorRob,
+                backgroundColor: colorRob
             },
             {
                 label: "Burglary",
                 data: dataBurgl,
-                backgroundColor: "rgba(30, 144, 255, .8)"
+                borderColor: colorBurgl,
+                backgroundColor: colorBurgl
             },
             {
                 label: "Theft (Larceny)",
                 data: dataLarce,
-                backgroundColor: "rgba(50, 18, 122, .8)"
+                borderColor: colorLarce,
+                backgroundColor: colorLarce
             },
             {
                 label: "Theft (Motor Vehicle)",
                 data: dataMVtheft,
-                backgroundColor: "rgba(148, 0, 211, .8)"
+                borderColor: colorMVtheft,
+                backgroundColor: colorMVtheft
             }
         ]
     };
@@ -169,12 +202,13 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
     var xAxesOptions = [{
         scaleLabel: {
             display: true,
+            fontStyle: 'bold',
             labelString: 'Year'
         }
     }];
 
 
-    // Define the charts
+    // Define charts
 
     var totCrimeChart = new Chart(totCrimeCtx, {
         type: 'line',
@@ -191,6 +225,7 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
                     },
                     scaleLabel: {
                         display: true,
+                        fontStyle: 'bold',
                         labelString: 'Number of Crimes'
                     }
                 }]
@@ -216,6 +251,7 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
                     },
                     scaleLabel: {
                         display: true,
+                        fontStyle: 'bold',
                         labelString: 'Number of Criminal Homicides'
                     }
                 }]
@@ -241,6 +277,7 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
                     },
                     scaleLabel: {
                         display: true,
+                        fontStyle: 'bold',
                         labelString: 'Number of Forcible Rapes'
                     }
                 }]
@@ -266,6 +303,7 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
                     },
                     scaleLabel: {
                         display: true,
+                        fontStyle: 'bold',
                         labelString: 'Number of Aggravated Assaults'
                     }
                 }]
@@ -291,6 +329,7 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
                     },
                     scaleLabel: {
                         display: true,
+                        fontStyle: 'bold',
                         labelString: 'Number of Robberies'
                     }
                 }]
@@ -316,6 +355,7 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
                     },
                     scaleLabel: {
                         display: true,
+                        fontStyle: 'bold',
                         labelString: 'Number of Burglaries'
                     }
                 }]
@@ -341,6 +381,7 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
                     },
                     scaleLabel: {
                         display: true,
+                        fontStyle: 'bold',
                         labelString: 'Number of Larcenies (Excluding Motor Vehical Thefts)'
                     }
                 }]
@@ -366,6 +407,7 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
                     },
                     scaleLabel: {
                         display: true,
+                        fontStyle: 'bold',
                         labelString: 'Number of Motor Vehicle Thefts'
                     }
                 }]
@@ -388,6 +430,7 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
                     stacked: true,
                     scaleLabel: {
                         display: true,
+                        fontStyle: 'bold',
                         labelString: 'Year'
                     }
                 }],
@@ -398,6 +441,7 @@ $.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", func
                     },
                     scaleLabel: {
                         display: true,
+                        fontStyle: 'bold',
                         labelString: 'Crimes'
                     }
                 }]
