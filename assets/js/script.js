@@ -227,7 +227,7 @@ $.getJSON("https://cdn.rawgit.com/kathmo/berkeley-annual-crimes/master/assets/da
                     scaleLabel: {
                         display: true,
                         fontStyle: 'bold',
-                        labelString: 'Number of Crimes'
+                        labelString: 'Total Part I Crimes (Excluding Arson)'
                     }
                 }]
             },
@@ -443,7 +443,7 @@ $.getJSON("https://cdn.rawgit.com/kathmo/berkeley-annual-crimes/master/assets/da
                     scaleLabel: {
                         display: true,
                         fontStyle: 'bold',
-                        labelString: 'Crimes'
+                        labelString: 'Number of Crimes'
                     }
                 }]
             }
