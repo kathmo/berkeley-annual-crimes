@@ -1,4 +1,5 @@
-$.getJSON("https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json", function (JSONdata) {
+// json at the source here: https://data.cityofberkeley.info/api/views/efkp-2py4/rows.json
+$.getJSON("https://cdn.rawgit.com/kathmo/berkeley-annual-crimes/master/assets/data/Berkeley_PD_UCR_-_Annual_Part_I_Crimes.json", function (JSONdata) {
     var dataCrime = JSONdata.data;
 
     var lblYear = [];
