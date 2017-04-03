@@ -185,13 +185,13 @@ $.getJSON("https://cdn.rawgit.com/kathmo/berkeley-annual-crimes/master/assets/da
                 backgroundColor: colorBurgl
             },
             {
-                label: "Theft (Larceny)",
+                label: "Larceny (Excluding Motor Vehicle Theft)",
                 data: dataLarce,
                 borderColor: colorLarce,
                 backgroundColor: colorLarce
             },
             {
-                label: "Theft (Motor Vehicle)",
+                label: "Motor Vehicle Theft",
                 data: dataMVtheft,
                 borderColor: colorMVtheft,
                 backgroundColor: colorMVtheft
