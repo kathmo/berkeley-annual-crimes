@@ -161,7 +161,7 @@ $.getJSON("https://cdn.rawgit.com/kathmo/berkeley-annual-crimes/master/assets/da
                 backgroundColor: colorMurdMans
             },
             {
-                label: "Rape",
+                label: "Forcible Rape",
                 data: dataRape,
                 borderColor: colorRape,
                 backgroundColor: colorRape
