@@ -19,4 +19,5 @@ To explore
 * Berkeley Open Data [Annual Part I Crimes Data Set](https://data.cityofberkeley.info/Public-Safety/Berkeley-PD-UCR-Annual-Part-I-Crimes/efkp-2py4/data)
 * graphs made with [Chart.js](http://www.chartjs.org/)
 * [Tachyons CSS framework](http://tachyons.io/)
+* [RawGit](https://rawgit.com/) to serve data
 * [GitHub Pages](https://pages.github.com/)
